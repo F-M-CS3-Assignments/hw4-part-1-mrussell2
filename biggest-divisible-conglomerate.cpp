@@ -39,9 +39,8 @@ vector<int> bdc_helper(vector<int> input){ // helper function for biggest_divisi
 
     vector <vector <int> > candidates;  //Initialize a vector with each item being also a int vector
     for (size_t i =0; i < input.size(); i++){
-        //cout << "i: " << i << endl;
         vector<int> L = {input[i]};  //a small vector with input[i] as the only item
-        //cout << " input: " << input[i] << endl;
+        
         //From the position i+1, find the position of next number in the input vector which is divisible by input[i]
         int j = find_next_dividend_position(input, i + 1, input[i]);
         if (j == -1) {
@@ -56,12 +55,8 @@ vector<int> bdc_helper(vector<int> input){ // helper function for biggest_divisi
                     L.push_back(num);
                 }
             }
-            //combine input[i] with all the numbers which are divisible by input[i] and form a conglomerate
             
         }
-    
-            
-        //cout << vec_to_string(L) << endl;
 
         candidates.push_back(L); //append the conglomerate to the list/vector 
     } 
@@ -69,9 +64,16 @@ vector<int> bdc_helper(vector<int> input){ // helper function for biggest_divisi
 }
 
 vector<int> biggest_divisible_conglomerate(vector<int> input){
+    if (input.empty()) return {}; // handle empty sets
+
     sort(input.begin(), input.end()); 
-    //cout << vec_to_string(input) << endl;
-    return bdc_helper(input);
+    vector<int> result = bdc_helper(input);
+
+    if (result.empty()) {
+        return {input[0]};  // If no valid subset found, return one element
+    }
+
+    return result;
 }
 string vec_to_string(vector<int> v){
     if (v.empty()) return "[]";

@@ -36,8 +36,8 @@ int main() {
 	cout << "input: " << vec_to_string(values) << endl;
 	cout << "output: " << vec_to_string(ans) << endl << endl;
 	soln = {};
-	set<int> answerSet2(ans.begin(), ans.end());
-	assert(answerSet2 == soln);
+	set<int> answerSet3(ans.begin(), ans.end());
+	assert(answerSet3 == soln);
 
 	//Test 4 : identical numbers should return themselves
 	values = {3, 3, 3, 3, 3};
@@ -45,20 +45,45 @@ int main() {
 	cout << "input: " << vec_to_string(values) << endl;
 	cout << "output: " << vec_to_string(ans) << endl << endl;
 	soln = {3, 3, 3, 3};
-	set<int> answerSet2(ans.begin(), ans.end());
-	assert(answerSet2 == soln);
+	set<int> answerSet4(ans.begin(), ans.end());
+	assert(answerSet4 == soln);
 
-	//Test 5: 
+	//Test 5: prime numbers should have no valid subsets
 	values = {37, 17, 19, 23, 29};
 	ans = biggest_divisible_conglomerate(values);
 	cout << "input: " << vec_to_string(values) << endl;
 	cout << "output: " << vec_to_string(ans) << endl << endl;
 	soln = {17};
-	set<int> answerSet2(ans.begin(), ans.end());
-	assert(answerSet2 == soln);
+	set<int> answerSet5(ans.begin(), ans.end());
+	assert(answerSet5 == soln);
 
-	
-	// write your own tests here!
+	//Test 6: 
+	values = {1, 12, 6, 3, 24};
+	ans = biggest_divisible_conglomerate(values);
+	cout << "input: " << vec_to_string(values) << endl;
+	cout << "output: " << vec_to_string(ans) << endl << endl;
+	soln = {1, 3, 6, 12, 24};
+	set<int> answerSet6(ans.begin(), ans.end());
+	assert(answerSet6 == soln);
+
+	//Test 7: Duplicates should not affect testing
+	values = {4, 2, 8, 2, 16};
+	ans = biggest_divisible_conglomerate(values);
+	cout << "input: " << vec_to_string(values) << endl;
+	cout << "output: " << vec_to_string(ans) << endl << endl;
+	soln = {2, 2, 4, 8, 16};
+	set<int> answerSet7(ans.begin(), ans.end());
+	assert(answerSet7 == soln);
+
+	//Test 8: Large numbers should still be handled
+	values = {1000000000, 500000000, 1};
+	ans = biggest_divisible_conglomerate(values);
+	cout << "input: " << vec_to_string(values) << endl;
+	cout << "output: " << vec_to_string(ans) << endl << endl;
+	soln = {1000000000, 500000000, 1};
+	set<int> answerSet8(ans.begin(), ans.end());
+	assert(answerSet8 == soln);
+
 
 	cout << "ALL TESTS PASSED!!" << endl;
 
