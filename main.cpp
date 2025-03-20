@@ -21,7 +21,6 @@ int main() {
 	bool second = (answerSet == soln);
 	assert(first || second);
 
-
 	// Test 2
 	values = {10, 5, 3, 15, 20};
 	ans = biggest_divisible_conglomerate(values);
@@ -31,7 +30,37 @@ int main() {
 	set<int> answerSet2(ans.begin(), ans.end());
 	assert(answerSet2 == soln);
 
+	//Test 3 : an empty set input should return an empty set
+	values = {};
+	ans = biggest_divisible_conglomerate(values);
+	cout << "input: " << vec_to_string(values) << endl;
+	cout << "output: " << vec_to_string(ans) << endl << endl;
+	soln = {};
+	set<int> answerSet2(ans.begin(), ans.end());
+	assert(answerSet2 == soln);
+
+	//Test 4 : identical numbers should return themselves
+	values = {3, 3, 3, 3, 3};
+	ans = biggest_divisible_conglomerate(values);
+	cout << "input: " << vec_to_string(values) << endl;
+	cout << "output: " << vec_to_string(ans) << endl << endl;
+	soln = {3, 3, 3, 3};
+	set<int> answerSet2(ans.begin(), ans.end());
+	assert(answerSet2 == soln);
+
+	//Test 5: 
+	values = {37, 17, 19, 23, 29};
+	ans = biggest_divisible_conglomerate(values);
+	cout << "input: " << vec_to_string(values) << endl;
+	cout << "output: " << vec_to_string(ans) << endl << endl;
+	soln = {17};
+	set<int> answerSet2(ans.begin(), ans.end());
+	assert(answerSet2 == soln);
+
+	
 	// write your own tests here!
+
+	cout << "ALL TESTS PASSED!!" << endl;
 
 	return 0;
 }
