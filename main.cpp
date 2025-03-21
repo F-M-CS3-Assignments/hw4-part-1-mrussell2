@@ -84,6 +84,26 @@ int main() {
 	set<int> answerSet8(ans.begin(), ans.end());
 	assert(answerSet8 == soln);
 
+	//Test 9 
+	values = {2, 8, 28, 56};
+	ans = biggest_divisible_conglomerate(values);
+	cout << "input: " << vec_to_string(values) << endl;
+	cout << "output: " << vec_to_string(ans) << endl << endl;
+	soln = {2, 8, 56,};
+	set<int> soln2 = {2, 28, 56};
+	set<int> answerSet9(ans.begin(), ans.end());
+	assert(answerSet9 == soln || answerSet9 == soln2);
+
+	//Test 10: a Set with one number should return itself
+	values = {88};
+	ans = biggest_divisible_conglomerate(values);
+	cout << "input: " << vec_to_string(values) << endl;
+	cout << "output: " << vec_to_string(ans) << endl << endl;
+	soln = {88};
+	set<int> answerSet10(ans.begin(), ans.end());
+	assert(answerSet10 == soln);
+
+
 
 	cout << "ALL TESTS PASSED!!" << endl;
 
